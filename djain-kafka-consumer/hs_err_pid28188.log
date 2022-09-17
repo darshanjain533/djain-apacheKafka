@@ -1,0 +1,217 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 8388608 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3535), pid=28188, tid=23592
+#
+# JRE version:  (17.0.4+11) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (17.0.4+11-LTS-179, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53065 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=djain-kafka-consumer -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages com.djain.kafka.consumer.DjainKafkaConsumerApplication
+
+Host: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz, 8 cores, 31G,  Windows 11 , 64 bit Build 22000 (10.0.22000.708)
+Time: Tue Sep 13 13:57:19 2022 India Standard Time elapsed time: 1.172530 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000012e059c2040):  JavaThread "Unknown thread" [_thread_in_vm, id=23592, stack(0x00000019d1300000,0x00000019d1400000)]
+
+Stack: [0x00000019d1300000,0x00000019d1400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6723da]
+V  [jvm.dll+0x7d1f74]
+V  [jvm.dll+0x7d371e]
+V  [jvm.dll+0x7d3d83]
+V  [jvm.dll+0x242ed5]
+V  [jvm.dll+0x66f2f9]
+V  [jvm.dll+0x663c42]
+V  [jvm.dll+0x30103b]
+V  [jvm.dll+0x3085d6]
+V  [jvm.dll+0x358463]
+V  [jvm.dll+0x35867f]
+V  [jvm.dll+0x2d8258]
+V  [jvm.dll+0x2d91c4]
+V  [jvm.dll+0x7a3a51]
+V  [jvm.dll+0x3662a1]
+V  [jvm.dll+0x782dcc]
+V  [jvm.dll+0x3e8bff]
+V  [jvm.dll+0x3ea6a1]
+C  [jli.dll+0x527b]
+C  [ucrtbase.dll+0x26c0c]
+C  [KERNEL32.DLL+0x154e0]
+C  [ntdll.dll+0x485b]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffa981ea858, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000012e05a6fcd0 GCTaskThread "GC Thread#0" [stack: 0x00000019d1500000,0x00000019d1600000] [id=20112]
+  0x0000012e05a80a60 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000019d1600000,0x00000019d1700000] [id=24580]
+  0x0000012e05a81470 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000019d1700000,0x00000019d1800000] [id=31144]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa97a38c47]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000012e059bdbe0] Heap_lock - owner thread: 0x0000012e059c2040
+
+Heap address: 0x0000000603400000, size: 8140 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000603400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa97e1b889]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.444 Loaded shared library C:\Java\jdk-17.0.4\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff72a610000 - 0x00007ff72a620000 	C:\Java\jdk-17.0.4\bin\javaw.exe
+0x00007ffb49ba0000 - 0x00007ffb49da9000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb47b50000 - 0x00007ffb47c0d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb471d0000 - 0x00007ffb4754c000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb478a0000 - 0x00007ffb479b1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffafd9e0000 - 0x00007ffafd9f8000 	C:\Java\jdk-17.0.4\bin\jli.dll
+0x00007ffb484b0000 - 0x00007ffb4855e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb49970000 - 0x00007ffb49a13000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb49a80000 - 0x00007ffb49b1e000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb47a30000 - 0x00007ffb47b50000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb489d0000 - 0x00007ffb48b7d000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb47080000 - 0x00007ffb470a6000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb48e00000 - 0x00007ffb48e29000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb47550000 - 0x00007ffb47668000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb47130000 - 0x00007ffb471cd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffafeed0000 - 0x00007ffafeeea000 	C:\Java\jdk-17.0.4\bin\VCRUNTIME140.dll
+0x00007ffb23a70000 - 0x00007ffb23d15000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467\COMCTL32.dll
+0x00007ffb3b880000 - 0x00007ffb3b88a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb49b20000 - 0x00007ffb49b51000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb282e0000 - 0x00007ffb282ec000 	C:\Java\jdk-17.0.4\bin\vcruntime140_1.dll
+0x00007ffae99e0000 - 0x00007ffae9a6d000 	C:\Java\jdk-17.0.4\bin\msvcp140.dll
+0x00007ffa97750000 - 0x00007ffa98312000 	C:\Java\jdk-17.0.4\bin\server\jvm.dll
+0x00007ffb47f50000 - 0x00007ffb47f58000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffb132c0000 - 0x00007ffb132c9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffb498a0000 - 0x00007ffb4990f000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb3d000000 - 0x00007ffb3d033000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb46220000 - 0x00007ffb46238000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb26870000 - 0x00007ffb2687a000 	C:\Java\jdk-17.0.4\bin\jimage.dll
+0x00007ffb44a60000 - 0x00007ffb44c81000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb2db20000 - 0x00007ffb2db51000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb470b0000 - 0x00007ffb4712f000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffafcba0000 - 0x00007ffafcbc5000 	C:\Java\jdk-17.0.4\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Java\jdk-17.0.4\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467;C:\Java\jdk-17.0.4\bin\server
+
+VM Arguments:
+jvm_args: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53065 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=djain-kafka-consumer -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: com.djain.kafka.consumer.DjainKafkaConsumerApplication
+java_class_path (initial): C:\Users\darsh\git\djain-apacheKafka\djain-kafka-consumer\target\classes;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.7.3\spring-boot-starter-web-2.7.3.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-starter\2.7.3\spring-boot-starter-2.7.3.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot\2.7.3\spring-boot-2.7.3.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.3\spring-boot-autoconfigure-2.7.3.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.7.3\spring-boot-starter-logging-2.7.3.jar;C:\Users\darsh\.m2\repository\ch\qos\logback\logback-classic\1.2.11\logback-classic-1.2.11.jar;C:\Users\darsh\.m2\repository\ch\qos\logback\logback-core\1.2.11\logback-core-1.2.11.jar;C:\Users\darsh\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.17.2\log4j-to-slf4j-2.17.2.jar;C:\Users\darsh\.m2\repository\org\apache\logging\log4j\log4j-api\2.17.2\log4j-api-2.17.2.jar;C:\Users\darsh\.m2\repository\org\slf4j\jul-to-slf4j\1.7.36\jul-to-slf4j-1.7.36.jar;C:\Users\darsh\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\darsh\.m2\repository\org\yaml\snakeyaml\1.30\snakeyaml-1.30.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.7.3\spring-boot-starter-json-2.7.3.jar;C:\Users\darsh\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.13.3\jackson-datatype-jdk8-2.13.3.jar;C:\Users\darsh\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.13.3\jackson-datatype-jsr310-2.13.3.jar;C:\Users\darsh\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.13.3\jackson-module-parameter-names-2.13.3.jar;C:\Users\darsh\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.7.3\spring-boot-starter-tomcat-2.7.3.jar;C:\Users\darsh\.m2\repository\org\apache
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 536870912                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 8535408640                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 8535408640                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Java\jdk-17.0.4
+PATH=C:/Users/darsh/Docs/eclipse-2022-06/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.3.v20220515-1416/jre/bin/server;C:/Users/darsh/Docs/eclipse-2022-06/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.3.v20220515-1416/jre/bin;C:\Java\jdk-17.0.4\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\apache-maven-3.8.6\bin;C:\Program Files (x86)\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Python310\Scripts\;C:\Python310\;C:\Users\darsh\AppData\Local\Microsoft\WindowsApps;C:\Users\darsh\Documents\keycloak-18.0.2\bin;C:\apache-maven-3.8.6\bin;;C:\Users\darsh\Docs\IntelliJ-2022.2\IntelliJ IDEA 2022.2\bin;;C:\Users\darsh\Docs\eclipse-2022-06\eclipse;
+USERNAME=darsh
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22000 (10.0.22000.708)
+OS uptime: 2 days 16:02 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xde, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 32555M (607M free)
+TotalPageFile size 93446M (AvailPageFile size 59M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 568M, peak: 576M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (17.0.4+11-LTS-179) for windows-amd64 JRE (17.0.4+11-LTS-179), built on Jun 28 2022 08:23:05 by "mach5one" with MS VC++ 16.8 / 16.9 (VS2019)
+
+END.
