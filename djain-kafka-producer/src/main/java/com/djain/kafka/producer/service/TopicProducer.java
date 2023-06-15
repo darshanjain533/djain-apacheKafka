@@ -30,14 +30,18 @@ public class TopicProducer {
 
 			@Override
 			public void onSuccess(SendResult<String, String> result) {
-				System.out.println("Sent message=[" + msg + "] with offset=[" + result.getRecordMetadata().offset() + "]");
+				log.info("Sent message=[" + msg + "] with offset=[" + result.getRecordMetadata().offset() + "]");
+				// write logic to move data into databricks
 			}
 
 			@Override
 			public void onFailure(Throwable ex) {
-				System.out.println("Unable to send message=[" + msg + "] due to : " + ex.getMessage());
+				log.info("Unable to send message=[" + msg + "] due to : " + ex.getMessage());
+				// write the logic to move data in mongodb
+				// run cronjob to fetch the data and move it to kafka again
 			}
 		});
+		
 	}
 }
 

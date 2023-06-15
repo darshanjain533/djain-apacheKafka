@@ -64,6 +64,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>consumer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
